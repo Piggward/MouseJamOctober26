@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://b4wgyevrn2jub"]
+
+[ext_resource type="Texture2D" uid="uid://bb88xk5ti23g0" path="res://Assets/UI/Box_Orange_Rounded.png" id="1_3tn64"]
+[ext_resource type="Script" uid="uid://pllwpkaxws07" path="res://win_module.gd" id="1_55qp5"]
+[ext_resource type="Texture2D" uid="uid://h4e3b6ndiqgn" path="res://Assets/UI/Banner_Orange.png" id="2_clead"]
+[ext_resource type="Texture2D" uid="uid://b03ircdi8do7y" path="res://Assets/UI/ButtonText_Small_Green_Round.png" id="3_w3nqu"]
+[ext_resource type="PackedScene" uid="uid://d3ckm278gmqib" path="res://standard_label.tscn" id="4_clead"]
+[ext_resource type="Texture2D" uid="uid://c82aju66r58bj" path="res://Assets/UI/Icon_Small_Star.png" id="4_w3nqu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b08na"]
+texture = ExtResource("1_3tn64")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vlrf8"]
+texture = ExtResource("3_w3nqu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_55qp5"]
+texture = ExtResource("3_w3nqu")
+modulate_color = Color(0.61339027, 0.61339027, 0.61339027, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w3nqu"]
+texture = ExtResource("3_w3nqu")
+modulate_color = Color(2.7083335, 2.7083335, 2.7083335, 1)
+
+[node name="WinModule" type="Control" unique_id=336844226]
+custom_minimum_size = Vector2(235, 235)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.5
+offset_top = -117.5
+offset_right = 117.5
+offset_bottom = 117.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_55qp5")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=223036521]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_b08na")
+
+[node name="Control" type="Control" parent="." unique_id=1817422785]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+offset_transform_enabled = true
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1755932169]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = -34.0
+offset_right = 96.0
+offset_bottom = 46.0
+grow_horizontal = 2
+offset_transform_enabled = true
+texture = ExtResource("2_clead")
+expand_mode = 2
+
+[node name="LevelCompletedLabel" parent="Control/TextureRect" unique_id=538266080 instance=ExtResource("4_clead")]
+layout_mode = 1
+offset_top = -6.0
+offset_bottom = -6.0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 20
+text = "LEVEL X
+COMPLETED"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1197153134]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 13
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=814016245]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1468150108]
+custom_minimum_size = Vector2(75, 75)
+custom_maximum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_w3nqu")
+expand_mode = 2
+
+[node name="NextLevelButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=847098522]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxTexture_vlrf8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_55qp5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_w3nqu")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_vlrf8")
+theme_override_styles/focus = SubResource("StyleBoxTexture_vlrf8")
+
+[node name="NextLevelLabel" parent="MarginContainer/VBoxContainer/NextLevelButton" unique_id=104047904 instance=ExtResource("4_clead")]
+layout_mode = 1
+offset_left = 1.5
+offset_top = 1.0
+offset_right = -1.5
+offset_bottom = -1.0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 20
+text = "Next level"
+
+[node name="OverviewButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=533214934]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxTexture_vlrf8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_55qp5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_w3nqu")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_vlrf8")
+theme_override_styles/focus = SubResource("StyleBoxTexture_vlrf8")
+
+[node name="OverviewButton" parent="MarginContainer/VBoxContainer/OverviewButton" unique_id=192395925 instance=ExtResource("4_clead")]
+layout_mode = 1
+offset_left = 1.5
+offset_top = 1.0
+offset_right = -1.5
+offset_bottom = -1.0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 20
+text = "Overview"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/NextLevelButton" to="." method="_on_next_level_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/OverviewButton" to="." method="_on_overview_button_pressed"]

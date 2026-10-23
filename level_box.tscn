@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://blrdf6i7wbnj6"]
+
+[ext_resource type="Texture2D" uid="uid://dhpswn8hslhho" path="res://Assets/UI/IconButton_Small_Orange_Square.png" id="1_iwgcf"]
+[ext_resource type="Script" uid="uid://cjjmstdvv4xv3" path="res://level_box.gd" id="2_1mejd"]
+[ext_resource type="PackedScene" uid="uid://d3ckm278gmqib" path="res://standard_label.tscn" id="2_whvge"]
+[ext_resource type="Texture2D" uid="uid://d250r0bktp8hb" path="res://Assets/UI/Icon_Small_StarGrey.png" id="3_1mejd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b08na"]
+
+[node name="LevelBox" type="TextureRect" unique_id=1372719565]
+custom_minimum_size = Vector2(125, 125)
+offset_left = -1.0
+offset_right = 124.0
+offset_bottom = 125.0
+texture = ExtResource("1_iwgcf")
+expand_mode = 2
+script = ExtResource("2_1mejd")
+
+[node name="Control" type="Control" parent="." unique_id=139402426]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="LevelText" parent="Control" unique_id=538266080 instance=ExtResource("2_whvge")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.5
+offset_top = -39.0
+offset_right = 15.5
+offset_bottom = 39.0
+mouse_filter = 1
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 75
+text = "1"
+
+[node name="Control" type="Control" parent="Control" unique_id=521213367]
+anchors_preset = 0
+offset_left = 96.0
+offset_top = 88.0
+offset_right = 136.0
+offset_bottom = 128.0
+mouse_filter = 1
+
+[node name="StarTexture" type="TextureRect" parent="Control/Control" unique_id=702794935]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_1mejd")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="." unique_id=1384589682]
+layout_mode = 0
+offset_right = 124.0
+offset_bottom = 124.0
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b08na")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_b08na")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_b08na")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_b08na")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b08na")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

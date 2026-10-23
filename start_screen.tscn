@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://laehob1quw7m"]
+
+[ext_resource type="PackedScene" uid="uid://jrdsqk86t8ea" path="res://level_overview.tscn" id="1_ncxyx"]
+
+[node name="StartScreen" type="Node2D" unique_id=60904598]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1320255270]
+
+[node name="WinModule" parent="CanvasLayer" unique_id=336844226 instance=ExtResource("1_ncxyx")]
+offset_top = -211.0
+offset_bottom = 275.0

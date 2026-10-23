@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://coyfl7nuwnkey"]
+
+[ext_resource type="Shader" uid="uid://bsj0s8jtls12f" path="res://color_swap.gdshader" id="1_cfu52"]
+[ext_resource type="Script" uid="uid://smjqt4orq00c" path="res://gravity_ball_mouse.gd" id="2_rsvl2"]
+[ext_resource type="AudioStream" uid="uid://dh8fgndl71axk" path="res://Audio/thuds.mp3" id="5_fljjx"]
+[ext_resource type="Texture2D" uid="uid://j62xu0bms81g" path="res://Assets/Characters/Mouse/Mouse_Down@2x.png" id="5_rsvl2"]
+[ext_resource type="Texture2D" uid="uid://bgou5xm82kopp" path="res://Assets/Background/Cloud_02.png" id="9_kt70e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_50tlk"]
+shader = ExtResource("1_cfu52")
+shader_parameter/from_color = Color(1, 0, 0, 1)
+shader_parameter/to_color = Color(0, 0, 1, 1)
+shader_parameter/from_color2 = Color(1, 0, 0, 1)
+shader_parameter/to_color2 = Color(0, 0, 1, 1)
+shader_parameter/from_color3 = Color(1, 0, 0, 1)
+shader_parameter/to_color3 = Color(0, 0, 1, 1)
+shader_parameter/from_color4 = Color(1, 0, 0, 1)
+shader_parameter/to_color4 = Color(0, 0, 1, 1)
+shader_parameter/from_color5 = Color(1, 0, 0, 1)
+shader_parameter/to_color5 = Color(0, 0, 1, 1)
+shader_parameter/tolerance = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rsvl2"]
+radius = 15.033297
+
+[sub_resource type="Curve" id="Curve_rptwa"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.24662161, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_kvxjt"]
+curve = SubResource("Curve_rptwa")
+
+[sub_resource type="Curve" id="Curve_kvxjt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5236486, 0.4285714), 0.0, 0.0, 0, 0, Vector2(1, 0.19642854), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_vlrf8"]
+curve = SubResource("Curve_kvxjt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b08na"]
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 10.0
+initial_velocity_max = 125.75
+gravity = Vector3(0, 0, 0)
+scale_min = 0.049999997
+scale_max = 0.099999994
+scale_curve = SubResource("CurveTexture_vlrf8")
+alpha_curve = SubResource("CurveTexture_kvxjt")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b08na"]
+radius = 15.033297
+
+[node name="MouseDown" type="RigidBody2D" unique_id=529641274]
+modulate = Color(2.7075353, 2.7075353, 2.7075353, 1)
+material = SubResource("ShaderMaterial_50tlk")
+collision_mask = 32
+contact_monitor = true
+max_contacts_reported = 4
+script = ExtResource("2_rsvl2")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=361390431]
+position = Vector2(0.6000004, 12.599998)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1437743325]
+position = Vector2(0, -13)
+shape = SubResource("CircleShape2D_rsvl2")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1376362333]
+show_behind_parent = true
+position = Vector2(0.6000004, 12.599998)
+emitting = false
+amount = 5
+texture = ExtResource("9_kt70e")
+lifetime = 0.65
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.76
+process_material = SubResource("ParticleProcessMaterial_b08na")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=354675140]
+position = Vector2(0.6000004, -0.40000153)
+shape = SubResource("CircleShape2D_b08na")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=975983430]
+position = Vector2(0.6000003, -2.4000025)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_rsvl2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1595187769]
+stream = ExtResource("5_fljjx")
+pitch_scale = 2.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ofmfy546e44o"]
+
+[ext_resource type="AudioStream" uid="uid://f1g8jtlpxll4" path="res://Audio/click.mp3" id="1_urc3i"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" unique_id=960021758]
+stream = ExtResource("1_urc3i")
+volume_db = -10.0

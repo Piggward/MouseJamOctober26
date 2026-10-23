@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://84m5y7cl71fn"]
+
+[ext_resource type="Shader" uid="uid://bsj0s8jtls12f" path="res://color_swap.gdshader" id="1_5g078"]
+[ext_resource type="Texture2D" uid="uid://bbvldj7v4ayf" path="res://Assets/Characters/Mouse/Mouse_Dead.png" id="2_1yn3r"]
+[ext_resource type="Texture2D" uid="uid://c2bgqfdhjfd3g" path="res://Assets/Icon_Small_Star.svg" id="2_ser6h"]
+[ext_resource type="Texture2D" uid="uid://dktjyywivt1ne" path="res://Assets/Characters/Mouse/Mouse_Down.png" id="3_tha6k"]
+[ext_resource type="Texture2D" uid="uid://kkcsbr22dbgj" path="res://Assets/Characters/Mouse/Mouse_Left.png" id="4_ser6h"]
+[ext_resource type="Texture2D" uid="uid://byxaisnmgkif6" path="res://Assets/Characters/Mouse/Mouse_Right.png" id="5_lr6kd"]
+[ext_resource type="Texture2D" uid="uid://boq41u5hlfhaf" path="res://Assets/Characters/Mouse/Mouse_Up.png" id="6_20rwr"]
+[ext_resource type="Script" uid="uid://d1cbkdeyt4oxe" path="res://cheese_mouse_combo.gd" id="7_5g078"]
+[ext_resource type="PackedScene" uid="uid://bmd86bv68ifrv" path="res://snap_to_grid_component.tscn" id="8_3m3nb"]
+[ext_resource type="Texture2D" uid="uid://bgou5xm82kopp" path="res://Assets/Background/Cloud_02.png" id="9_spg0a"]
+[ext_resource type="PackedScene" uid="uid://wmx81csaoibu" path="res://move_component.tscn" id="11_1yn3r"]
+[ext_resource type="PackedScene" uid="uid://bhlmgus5o44mm" path="res://glitch_sprite.tscn" id="12_ser6h"]
+[ext_resource type="Shader" uid="uid://1v3mkbcv8ax4" path="res://glitch.gdshader" id="13_lr6kd"]
+[ext_resource type="AudioStream" uid="uid://cjm5qqsfmasrf" path="res://Audio/glitch_short.mp3" id="14_lr6kd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5g078"]
+shader = ExtResource("1_5g078")
+shader_parameter/from_color = Color(1, 0, 0, 1)
+shader_parameter/to_color = Color(0, 0, 1, 1)
+shader_parameter/from_color2 = Color(1, 0, 0, 1)
+shader_parameter/to_color2 = Color(0, 0, 1, 1)
+shader_parameter/from_color3 = Color(1, 0, 0, 1)
+shader_parameter/to_color3 = Color(0, 0, 1, 1)
+shader_parameter/from_color4 = Color(1, 0, 0, 1)
+shader_parameter/to_color4 = Color(0, 0, 1, 1)
+shader_parameter/from_color5 = Color(1, 0, 0, 1)
+shader_parameter/to_color5 = Color(0, 0, 1, 1)
+shader_parameter/tolerance = 0.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1yn3r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ser6h")
+}],
+"loop": 1,
+"name": &"cheese",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1yn3r")
+}],
+"loop": 1,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tha6k")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ser6h")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_lr6kd")
+}],
+"loop": 1,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_20rwr")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b08na"]
+size = Vector2(74, 44)
+
+[sub_resource type="Curve" id="Curve_rptwa"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.24662161, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_kvxjt"]
+curve = SubResource("Curve_rptwa")
+
+[sub_resource type="Curve" id="Curve_kvxjt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5236486, 0.4285714), 0.0, 0.0, 0, 0, Vector2(1, 0.19642854), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_vlrf8"]
+curve = SubResource("Curve_kvxjt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b08na"]
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 10.0
+initial_velocity_max = 125.75
+gravity = Vector3(0, 0, 0)
+scale_min = 0.049999997
+scale_max = 0.099999994
+scale_curve = SubResource("CurveTexture_vlrf8")
+alpha_curve = SubResource("CurveTexture_kvxjt")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lr6kd"]
+shader = ExtResource("13_lr6kd")
+shader_parameter/shake_power = 0.105
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.05200000247
+
+[node name="CheeseMouseCombo" type="AnimatedSprite2D" unique_id=1808784228]
+self_modulate = Color(1.5720325, 1.5720325, 1.5720325, 1)
+material = SubResource("ShaderMaterial_5g078")
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_1yn3r")
+animation = &"cheese"
+offset = Vector2(0, -15.725)
+script = ExtResource("7_5g078")
+
+[node name="SnapToGridComponent" parent="." unique_id=1627032415 instance=ExtResource("8_3m3nb")]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=361390431]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1437743325]
+position = Vector2(-7, 2)
+shape = SubResource("RectangleShape2D_b08na")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1376362333]
+show_behind_parent = true
+emitting = false
+amount = 5
+texture = ExtResource("9_spg0a")
+lifetime = 0.65
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.76
+process_material = SubResource("ParticleProcessMaterial_b08na")
+
+[node name="MoveComponent" parent="." unique_id=1380026001 instance=ExtResource("11_1yn3r")]
+
+[node name="GlitchSprite" parent="." unique_id=1124717218 instance=ExtResource("12_ser6h")]
+material = SubResource("ShaderMaterial_lr6kd")
+position = Vector2(0, -10)
+scale = Vector2(0.07770345, 0.07770345)
+
+[node name="AudioStreamPlayer2D" parent="GlitchSprite" index="0" unique_id=113772246]
+stream = ExtResource("14_lr6kd")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+
+[editable path="MoveComponent"]
+[editable path="GlitchSprite"]

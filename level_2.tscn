@@ -1,0 +1,185 @@
+[gd_scene format=4 uid="uid://uxp7ccxki3s3"]
+
+[ext_resource type="Script" uid="uid://jx8lfpbls101" path="res://test_level.gd" id="1_sgm4o"]
+[ext_resource type="Texture2D" uid="uid://cqys7bso05bdp" path="res://Assets/Background/Bg.png" id="2_6r3eb"]
+[ext_resource type="Texture2D" uid="uid://bdty0kiw1p1rf" path="res://Assets/Background/Cloud_01.png" id="3_2pufk"]
+[ext_resource type="Texture2D" uid="uid://ccmc6skfqdjxk" path="res://Assets/Background/Cloud_05.png" id="4_btc8u"]
+[ext_resource type="Texture2D" uid="uid://cxnccaswbn3xk" path="res://Assets/Background/Cloud_04.png" id="5_ikghu"]
+[ext_resource type="Texture2D" uid="uid://ci6bc2xy8elry" path="res://Assets/Terrain/Grass_Dark.png" id="8_ldfcd"]
+[ext_resource type="Texture2D" uid="uid://dkep1b8a1wa31" path="res://Assets/Terrain/Grass_Light.png" id="9_41lt0"]
+[ext_resource type="Texture2D" uid="uid://cymn2tbsdsgdv" path="res://merged.png" id="10_t8cg7"]
+[ext_resource type="Script" uid="uid://bmojwl8xkff2k" path="res://floor_objects.gd" id="11_5hnhx"]
+[ext_resource type="PackedScene" uid="uid://ofmfy546e44o" path="res://tilemap_audio.tscn" id="11_jcnlr"]
+[ext_resource type="Texture2D" uid="uid://bo8h2o6oywbak" path="res://Assets/Terrain/Grass_Texture.png" id="11_o5ykh"]
+[ext_resource type="Script" uid="uid://f37df18evn33" path="res://tile_map.gd" id="12_btc8u"]
+[ext_resource type="PackedScene" uid="uid://b86ynvgbdv7va" path="res://box.tscn" id="13_lvfll"]
+[ext_resource type="PackedScene" uid="uid://di4juj2y46wko" path="res://vanilla_mouse.tscn" id="16_jcnlr"]
+[ext_resource type="PackedScene" uid="uid://wnuvomn4e5ij" path="res://canvas_layer.tscn" id="16_lvfll"]
+[ext_resource type="PackedScene" uid="uid://0edk5lhsfq8m" path="res://start_point.tscn" id="17_jcnlr"]
+[ext_resource type="PackedScene" uid="uid://baecobrvw10d4" path="res://level_switch_component.tscn" id="17_lvfll"]
+[ext_resource type="PackedScene" uid="uid://84m5y7cl71fn" path="res://cheese_mouse_combo.tscn" id="19_5kfcu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jcnlr"]
+texture = ExtResource("8_ldfcd")
+texture_region_size = Vector2i(128, 96)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -15)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63, -48, 64, -46, 64, 15, -64, 15)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5kfcu"]
+texture = ExtResource("9_41lt0")
+texture_region_size = Vector2i(128, 96)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -15)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63, -48, 64, -46, 64, 15, -64, 15)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i558w"]
+texture = ExtResource("10_t8cg7")
+texture_region_size = Vector2i(128, 96)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -32, 64, -32, 64, 32, -64, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -32, 64, -32, 64, 32, -64, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -32, 64, -32, 64, 32, -64, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -32, 64, -32, 64, 32, -64, 32)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, -15)
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63, -48, 64, -46, 64, 15, -64, 15)
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, -15)
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63, -48, 64, -46, 64, 15, -64, 15)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cuxq2"]
+texture = ExtResource("11_o5ykh")
+texture_region_size = Vector2i(128, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -32, 64, -32, 64, 32, -64, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -32, 64, -32, 64, 32, -64, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -32, 64, -32, 64, 32, -64, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -32, 64, -32, 64, 32, -64, 32)
+
+[sub_resource type="TileSet" id="TileSet_vlrf8"]
+tile_size = Vector2i(128, 64)
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 8
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Grass 0"
+terrain_set_0/terrain_0/color = Color(0.5019608, 0.8, 0.2509804, 1)
+terrain_set_0/terrain_1/name = "Grass1 1"
+terrain_set_0/terrain_1/color = Color(0.058317885, 0.52950406, 0.29493314, 1)
+sources/6 = SubResource("TileSetAtlasSource_cuxq2")
+sources/11 = SubResource("TileSetAtlasSource_jcnlr")
+sources/12 = SubResource("TileSetAtlasSource_5kfcu")
+sources/16 = SubResource("TileSetAtlasSource_i558w")
+tile_proxies/coords_level = [[6, Vector2i(0, 0)], [0, Vector2i(0, 0)], [6, Vector2i(1, 0)], [0, Vector2i(1, 0)], [7, Vector2i(0, 0)], [0, Vector2i(2, 0)], [7, Vector2i(1, 0)], [0, Vector2i(3, 0)], [7, Vector2i(2, 0)], [0, Vector2i(4, 0)], [7, Vector2i(3, 0)], [0, Vector2i(5, 0)]]
+
+[node name="Level2" type="Node2D" unique_id=43940947 node_paths=PackedStringArray("last_objects") groups=["Level"]]
+y_sort_enabled = true
+script = ExtResource("1_sgm4o")
+last_objects = [NodePath("MouseDown"), NodePath("CheeseMouseCombo")]
+level_number = 2
+
+[node name="Background" type="Node2D" parent="." unique_id=930154021]
+
+[node name="Bg" type="Sprite2D" parent="Background" unique_id=1262818023]
+position = Vector2(649, 343.49997)
+scale = Vector2(5.3125, 3.2539065)
+texture = ExtResource("2_6r3eb")
+
+[node name="Cloud01" type="Sprite2D" parent="Background" unique_id=1364527808]
+position = Vector2(968, 258)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_2pufk")
+
+[node name="Cloud03" type="Sprite2D" parent="Background" unique_id=1793905650]
+position = Vector2(276, 529)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_btc8u")
+
+[node name="Cloud04" type="Sprite2D" parent="Background" unique_id=1045914722]
+position = Vector2(354, 50)
+texture = ExtResource("5_ikghu")
+
+[node name="Cloud05" type="Sprite2D" parent="Background" unique_id=419843517]
+position = Vector2(811, 532)
+texture = ExtResource("4_btc8u")
+
+[node name="TileMap" type="TileMapLayer" parent="." unique_id=215231377]
+use_parent_material = true
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAEAAYAEAAAAAEAAAAEAAcAEAAAAAAAAAAEAAgAEAAAAAEAAAAEAAkAEAAAAAAAAAAEAAoAEAAAAAEAAAAEAAsAEAAAAAAAAAAEAAwAEAAAAAEAAAAEAA0AEAAAAAAAAAAEAA4AEAAAAAEAAAAEAA8AEAAAAAAAAAAEABAAEAAAAAEAAAAFAAYAEAABAAEAAAAFAAcAEAABAAAAAAAFAAgAEAABAAEAAAAFAAkAEAABAAAAAAAFAAoAEAABAAEAAAAFAAsAEAABAAAAAAAFAAwAEAABAAEAAAAFAA0AEAABAAAAAAAFAA4AEAABAAEAAAAFAA8AEAABAAAAAAAFABAAEAABAAEAAAAGAAYAEAAAAAEAAAAGAAcAEAAAAAAAAAAGAAgAEAAAAAEAAAAGAAkAEAAAAAAAAAAGAAoAEAAAAAEAAAAGAAsAEAAAAAAAAAAGAAwAEAAAAAEAAAAGAA0AEAAAAAAAAAAGAA4AEAAAAAEAAAAGAA8AEAAAAAAAAAAGABAAEAAAAAEAAAAHAAYAEAABAAEAAAAHAAcAEAACAAAAAAAHAA8AEAABAAAAAAAHABAAEAABAAEAAAAIAAYAEAAAAAEAAAAIAAcAEAADAAAAAAAIAA8AEAAAAAAAAAAIABAAEAAAAAEAAAAJAAYAEAABAAEAAAAJAAcAEAACAAAAAAAJAA8AEAABAAAAAAAJABAAEAABAAEAAAAKAAYAEAAAAAEAAAAKAAcAEAADAAAAAAAKAA8AEAAAAAAAAAAKABAAEAAAAAEAAAALAAYAEAABAAEAAAALAAcAEAABAAAAAAALAAgAEAABAAEAAAALAAkAEAABAAAAAAALAAoAEAABAAEAAAALAAwAEAAAAAAAAAALAA0AEAABAAAAAAALAA4AEAABAAEAAAALAA8AEAABAAAAAAALABAAEAABAAEAAAAMAAYAEAAAAAEAAAAMAAcAEAAAAAAAAAAMAAgAEAAAAAEAAAAMAAkAEAAAAAAAAAAMAAsAEAAAAAAAAAAMAAwAEAABAAAAAAAMAA0AEAAAAAAAAAAMAA4AEAAAAAEAAAAMAA8AEAAAAAAAAAAMABAAEAAAAAEAAAANAAYAEAABAAEAAAANAAcAEAABAAAAAAANAAgAEAABAAEAAAANAAkAEAABAAAAAAANAAsAEAABAAAAAAANAAwAEAABAAEAAAANAA0AEAABAAAAAAANAA4AEAABAAEAAAANAA8AEAABAAAAAAANABAAEAABAAEAAAAEAAUAEAAAAAAAAAAFAAUAEAABAAAAAAAGAAUAEAAAAAAAAAAHAAUAEAABAAAAAAAIAAUAEAAAAAAAAAAJAAUAEAABAAAAAAAKAAUAEAAAAAAAAAALAAUAEAABAAAAAAAMAAUAEAAAAAAAAAANAAUAEAABAAAAAAAEABEAEAADAAAAAAAFABEAEAACAAAAAAAGABEAEAADAAAAAAAHABEAEAACAAAAAAAIABEAEAADAAAAAAAJABEAEAACAAAAAAAKABEAEAADAAAAAAALABEAEAACAAAAAAAMABEAEAADAAAAAAANABEAEAACAAAAAAAMAAoAEAAAAAEAAAANAAoAEAABAAEAAAALAAsAEAABAAAAAAA=")
+tile_set = SubResource("TileSet_vlrf8")
+script = ExtResource("12_btc8u")
+
+[node name="AudioStreamPlayer2D" parent="TileMap" unique_id=960021758 instance=ExtResource("11_jcnlr")]
+
+[node name="FloorObjects" type="Node2D" parent="." unique_id=1888065791]
+y_sort_enabled = true
+script = ExtResource("11_5hnhx")
+
+[node name="Box" parent="FloorObjects" unique_id=639284425 instance=ExtResource("13_lvfll")]
+position = Vector2(866, 300)
+
+[node name="Box2" parent="FloorObjects" unique_id=2084804482 instance=ExtResource("13_lvfll")]
+position = Vector2(666, 204)
+
+[node name="Box3" parent="FloorObjects" unique_id=785041814 instance=ExtResource("13_lvfll")]
+position = Vector2(351, 302)
+
+[node name="Box4" parent="FloorObjects" unique_id=2016513881 instance=ExtResource("13_lvfll")]
+position = Vector2(607, 495)
+
+[node name="Box16" parent="FloorObjects" unique_id=381500622 instance=ExtResource("13_lvfll")]
+position = Vector2(607, 495)
+
+[node name="Box5" parent="FloorObjects" unique_id=1932759330 instance=ExtResource("13_lvfll")]
+position = Vector2(801, 300)
+
+[node name="Box6" parent="FloorObjects" unique_id=920325794 instance=ExtResource("13_lvfll")]
+position = Vector2(738, 397)
+
+[node name="Box7" parent="FloorObjects" unique_id=2003897050 instance=ExtResource("13_lvfll")]
+position = Vector2(796, 396)
+
+[node name="Box8" parent="FloorObjects" unique_id=1390785056 instance=ExtResource("13_lvfll")]
+position = Vector2(541, 564)
+
+[node name="Box9" parent="FloorObjects" unique_id=1989152178 instance=ExtResource("13_lvfll")]
+position = Vector2(351, 527)
+
+[node name="Box10" parent="FloorObjects" unique_id=1371935133 instance=ExtResource("13_lvfll")]
+position = Vector2(291, 460)
+
+[node name="Box11" parent="FloorObjects" unique_id=755258103 instance=ExtResource("13_lvfll")]
+position = Vector2(479, 237)
+
+[node name="Box12" parent="FloorObjects" unique_id=455237686 instance=ExtResource("13_lvfll")]
+position = Vector2(550, 173)
+
+[node name="Box13" parent="FloorObjects" unique_id=2144600011 instance=ExtResource("13_lvfll")]
+position = Vector2(479, 525)
+
+[node name="Box14" parent="FloorObjects" unique_id=807285917 instance=ExtResource("13_lvfll")]
+position = Vector2(800, 239)
+
+[node name="Box15" parent="FloorObjects" unique_id=1505000147 instance=ExtResource("13_lvfll")]
+position = Vector2(415, 302)
+
+[node name="MouseDown" parent="." unique_id=1808784228 instance=ExtResource("16_jcnlr")]
+y_sort_enabled = true
+position = Vector2(348, 207)
+
+[node name="CheeseMouseCombo" parent="." unique_id=343024313 instance=ExtResource("19_5kfcu")]
+position = Vector2(805, 527)
+
+[node name="CanvasLayer" parent="." unique_id=1369879755 instance=ExtResource("16_lvfll")]
+
+[node name="LevelSwitchComponent" parent="." unique_id=203586724 instance=ExtResource("17_lvfll")]
+
+[node name="StartPoint" parent="." unique_id=1284489345 instance=ExtResource("17_jcnlr")]
+position = Vector2(351, 205)

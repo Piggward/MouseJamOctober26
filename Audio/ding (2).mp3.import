@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dvbkotm6fmtt6"
+path="res://.godot/imported/ding (2).mp3-84910443350a0c08d876ccf014318397.mp3str"
+
+[deps]
+
+source_file="res://Audio/ding (2).mp3"
+dest_files=["res://.godot/imported/ding (2).mp3-84910443350a0c08d876ccf014318397.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

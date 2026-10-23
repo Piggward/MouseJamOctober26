@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bioojo35ocytc"]
+
+[ext_resource type="Script" uid="uid://c5o0hqhfvc6w2" path="res://cheese.gd" id="1_d3rdx"]
+[ext_resource type="Texture2D" uid="uid://c2bgqfdhjfd3g" path="res://Assets/Icon_Small_Star.svg" id="2_d3rdx"]
+[ext_resource type="PackedScene" uid="uid://bmd86bv68ifrv" path="res://snap_to_grid_component.tscn" id="3_row1r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlrf8"]
+
+[node name="Cheese" type="Node2D" unique_id=2068781396]
+script = ExtResource("1_d3rdx")
+
+[node name="Onion" type="Sprite2D" parent="." unique_id=865152036]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_d3rdx")
+offset = Vector2(0, -3.75)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1558963846]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1841142772]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_vlrf8")
+
+[node name="SnapToGridComponent" parent="." unique_id=1627032415 instance=ExtResource("3_row1r")]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

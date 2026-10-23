@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bhlmgus5o44mm"]
+
+[ext_resource type="Shader" uid="uid://1v3mkbcv8ax4" path="res://glitch.gdshader" id="1_en1nx"]
+[ext_resource type="Texture2D" uid="uid://bb88xk5ti23g0" path="res://Assets/UI/Box_Orange_Rounded.png" id="2_t0hl5"]
+[ext_resource type="Script" uid="uid://63u2oga1oag0" path="res://glitch_sprite.gd" id="3_0wqqv"]
+[ext_resource type="AudioStream" uid="uid://e5oarcje4l50" path="res://Audio/glitch_long.mp3" id="4_la45h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b08na"]
+shader = ExtResource("1_en1nx")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[node name="GlitchSprite" type="Sprite2D" unique_id=1124717218]
+material = SubResource("ShaderMaterial_b08na")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_t0hl5")
+script = ExtResource("3_0wqqv")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=113772246]
+stream = ExtResource("4_la45h")
+volume_db = -8.0

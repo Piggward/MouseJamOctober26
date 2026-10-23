@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://di4juj2y46wko"]
+
+[ext_resource type="Shader" uid="uid://bsj0s8jtls12f" path="res://color_swap.gdshader" id="1_gjx0c"]
+[ext_resource type="Texture2D" uid="uid://bbvldj7v4ayf" path="res://Assets/Characters/Mouse/Mouse_Dead.png" id="2_38753"]
+[ext_resource type="Texture2D" uid="uid://dktjyywivt1ne" path="res://Assets/Characters/Mouse/Mouse_Down.png" id="3_8cl6n"]
+[ext_resource type="Texture2D" uid="uid://kkcsbr22dbgj" path="res://Assets/Characters/Mouse/Mouse_Left.png" id="4_4nmh8"]
+[ext_resource type="Texture2D" uid="uid://byxaisnmgkif6" path="res://Assets/Characters/Mouse/Mouse_Right.png" id="5_c4svg"]
+[ext_resource type="Texture2D" uid="uid://boq41u5hlfhaf" path="res://Assets/Characters/Mouse/Mouse_Up.png" id="6_grpeu"]
+[ext_resource type="Script" uid="uid://ip8q7xqmidvu" path="res://mouse.gd" id="7_accxy"]
+[ext_resource type="PackedScene" uid="uid://bmd86bv68ifrv" path="res://snap_to_grid_component.tscn" id="8_2oj7r"]
+[ext_resource type="PackedScene" uid="uid://caoe7uvxwkgc7" path="res://move_particles.tscn" id="9_38753"]
+[ext_resource type="PackedScene" uid="uid://wmx81csaoibu" path="res://move_component.tscn" id="10_gjx0c"]
+[ext_resource type="AudioStream" uid="uid://dm00n7q0e5n8v" path="res://Audio/sweep.mp3" id="11_38753"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_50tlk"]
+shader = ExtResource("1_gjx0c")
+shader_parameter/from_color = Color(1, 0, 0, 1)
+shader_parameter/to_color = Color(0, 0, 1, 1)
+shader_parameter/from_color2 = Color(1, 0, 0, 1)
+shader_parameter/to_color2 = Color(0, 0, 1, 1)
+shader_parameter/from_color3 = Color(1, 0, 0, 1)
+shader_parameter/to_color3 = Color(0, 0, 1, 1)
+shader_parameter/from_color4 = Color(1, 0, 0, 1)
+shader_parameter/to_color4 = Color(0, 0, 1, 1)
+shader_parameter/from_color5 = Color(1, 0, 0, 1)
+shader_parameter/to_color5 = Color(0, 0, 1, 1)
+shader_parameter/tolerance = 0.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b08na"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_38753")
+}],
+"loop": 1,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8cl6n")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_4nmh8")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_c4svg")
+}],
+"loop": 1,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_grpeu")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b08na"]
+size = Vector2(74, 44)
+
+[node name="MouseDown" type="AnimatedSprite2D" unique_id=1808784228]
+self_modulate = Color(2.454227, 2.454227, 2.454227, 1)
+material = SubResource("ShaderMaterial_50tlk")
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_b08na")
+animation = &"right"
+offset = Vector2(0, -15.725)
+script = ExtResource("7_accxy")
+
+[node name="SnapToGridComponent" parent="." unique_id=1627032415 instance=ExtResource("8_2oj7r")]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=361390431]
+collision_mask = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1437743325]
+position = Vector2(-7, 2)
+shape = SubResource("RectangleShape2D_b08na")
+
+[node name="GPUParticles2D" parent="." unique_id=1593439970 instance=ExtResource("9_38753")]
+
+[node name="MoveComponent" parent="." unique_id=1380026001 instance=ExtResource("10_gjx0c")]
+
+[node name="Move" type="AudioStreamPlayer2D" parent="." unique_id=398115490]
+stream = ExtResource("11_38753")
+pitch_scale = 1.2
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

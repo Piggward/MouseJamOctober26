@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://wnuvomn4e5ij"]
+
+[ext_resource type="Script" uid="uid://cg0o64y67duol" path="res://canvas_layer.gd" id="1_37rai"]
+[ext_resource type="Texture2D" uid="uid://ddg4py54etnw6" path="res://Assets/UI/Banner_Blue.svg" id="1_v2lfg"]
+[ext_resource type="PackedScene" uid="uid://d3ckm278gmqib" path="res://standard_label.tscn" id="2_tg4cr"]
+[ext_resource type="Texture2D" uid="uid://c2bgqfdhjfd3g" path="res://Assets/Icon_Small_Star.svg" id="4_0qrqu"]
+[ext_resource type="Texture2D" uid="uid://dktjyywivt1ne" path="res://Assets/Characters/Mouse/Mouse_Down.png" id="6_fsbdh"]
+[ext_resource type="Texture2D" uid="uid://b85x100cj01de" path="res://Assets/UI/Icon_Small_Blank_Arrow.svg" id="7_n6wdb"]
+
+[sub_resource type="Environment" id="Environment_b08na"]
+background_mode = 3
+glow_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1369879755]
+process_mode = 3
+script = ExtResource("1_37rai")
+
+[node name="Control" type="Control" parent="." unique_id=1219578278]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1976932176]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 95.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 24
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer" unique_id=1511805935]
+custom_minimum_size = Vector2(375, 75)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_v2lfg")
+expand_mode = 2
+
+[node name="Control" type="Control" parent="Control/MarginContainer/TextureRect" unique_id=877902159]
+anchors_preset = 0
+offset_right = 378.5
+offset_bottom = 61.0
+
+[node name="Label" parent="Control/MarginContainer/TextureRect/Control" unique_id=538266080 instance=ExtResource("2_tg4cr")]
+layout_mode = 1
+offset_top = 0.0
+offset_bottom = 0.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=28669543]
+environment = SubResource("Environment_b08na")
+
+[node name="Control2" type="Control" parent="." unique_id=2134328481]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -226.0
+offset_bottom = 95.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control2" unique_id=265060018]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -242.0
+offset_bottom = 124.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 48
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control2/MarginContainer" unique_id=360557805]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control2/MarginContainer/HBoxContainer" unique_id=1562186029]
+layout_mode = 2
+theme_override_constants/margin_right = -10
+
+[node name="TextureRect" type="TextureRect" parent="Control2/MarginContainer/HBoxContainer/MarginContainer" unique_id=649892329]
+modulate = Color(2.454227, 2.454227, 2.454227, 1)
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("6_fsbdh")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Control2/MarginContainer/HBoxContainer" unique_id=299075808]
+modulate = Color(0.2599222, 0.9001707, 0, 1)
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 29.025)
+texture = ExtResource("7_n6wdb")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control2/MarginContainer/HBoxContainer" unique_id=1721710704]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
+custom_minimum_size = Vector2(70, 70)
+custom_maximum_size = Vector2(70, 70)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 15.735)
+texture = ExtResource("4_0qrqu")
+expand_mode = 2

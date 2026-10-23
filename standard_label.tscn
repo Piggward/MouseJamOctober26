@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d3ckm278gmqib"]
+
+[ext_resource type="FontFile" uid="uid://byf4l3otgokem" path="res://Play Chickens.ttf" id="1_ih0hp"]
+
+[node name="Label" type="Label" unique_id=538266080]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_ih0hp")
+theme_override_font_sizes/font_size = 40
+text = "LEVEL 1"
+horizontal_alignment = 1
+vertical_alignment = 1

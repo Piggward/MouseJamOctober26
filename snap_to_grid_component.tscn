@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bmd86bv68ifrv"]
+
+[ext_resource type="Script" uid="uid://gafd07plym2g" path="res://snap_to_grid_component.gd" id="1_cnaf6"]
+
+[node name="SnapToGridComponent" type="Node2D" unique_id=1627032415]
+script = ExtResource("1_cnaf6")

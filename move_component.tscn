@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://wmx81csaoibu"]
+
+[ext_resource type="Script" uid="uid://bplf1oj54451i" path="res://move_component.gd" id="1_2lay7"]
+
+[node name="MoveComponent" type="Node2D" unique_id=1380026001]
+script = ExtResource("1_2lay7")
+
+[node name="FloorRayCasts" type="Node2D" parent="." unique_id=191475247]
+
+[node name="DownCast" type="RayCast2D" parent="FloorRayCasts" unique_id=1314576261]
+position = Vector2(-12, 60)
+rotation = -1.5573158
+target_position = Vector2(0, 28)
+collision_mask = 8
+hit_from_inside = true
+
+[node name="LeftCast" type="RayCast2D" parent="FloorRayCasts" unique_id=1269329971]
+position = Vector2(-132, -14)
+target_position = Vector2(0, 28)
+collision_mask = 8
+hit_from_inside = true
+
+[node name="RightCast" type="RayCast2D" parent="FloorRayCasts" unique_id=830066086]
+position = Vector2(130, -10)
+target_position = Vector2(0, 28)
+collision_mask = 8
+hit_from_inside = true
+
+[node name="UpCast" type="RayCast2D" parent="FloorRayCasts" unique_id=1577073929]
+position = Vector2(-12.000002, -77.99999)
+rotation = -1.5700539
+target_position = Vector2(0, 28)
+collision_mask = 8
+hit_from_inside = true
+
+[node name="ObstacleRayCasts" type="Node2D" parent="." unique_id=360558674]
+
+[node name="DownCast" type="RayCast2D" parent="ObstacleRayCasts" unique_id=2144788656]
+position = Vector2(-12, 60)
+rotation = -1.5573158
+target_position = Vector2(0, 28)
+collision_mask = 16
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="LeftCast" type="RayCast2D" parent="ObstacleRayCasts" unique_id=1990811416]
+position = Vector2(-132, -14)
+target_position = Vector2(0, 28)
+collision_mask = 16
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RightCast" type="RayCast2D" parent="ObstacleRayCasts" unique_id=1465067852]
+position = Vector2(130, -10)
+target_position = Vector2(0, 28)
+collision_mask = 16
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="UpCast" type="RayCast2D" parent="ObstacleRayCasts" unique_id=350121326]
+position = Vector2(-12.000002, -77.99999)
+rotation = -1.5700539
+target_position = Vector2(0, 28)
+collision_mask = 16
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false

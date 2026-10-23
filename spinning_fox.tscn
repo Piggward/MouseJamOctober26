@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cc4x2rgafwyel"]
+
+[ext_resource type="Texture2D" uid="uid://c3y4y2t2d76l" path="res://Assets/Characters/Fox/Fox_Down_mean.png" id="1_p6exc"]
+[ext_resource type="Script" uid="uid://ckauc8233jyet" path="res://spinning_fox.gd" id="1_stgh2"]
+[ext_resource type="AudioStream" uid="uid://b2ddog4h2ksyh" path="res://Audio/fox_bark.mp3" id="3_0lnc1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b08na"]
+radius = 18.110771
+
+[node name="SpinningFox" type="Node2D" unique_id=1695682969]
+script = ExtResource("1_stgh2")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1303340576]
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1451030117]
+shape = SubResource("CircleShape2D_b08na")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1470220086]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_p6exc")
+offset = Vector2(0, -5.415)
+
+[node name="bark" type="AudioStreamPlayer2D" parent="." unique_id=1501527753]
+stream = ExtResource("3_0lnc1")
+volume_db = -8.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

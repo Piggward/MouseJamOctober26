@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://c5qi3x7or523t"]
+
+[ext_resource type="Texture2D" uid="uid://mdp4cklpy0k5" path="res://Assets/UI/Box_Blue_Rounded.png" id="1_5m1uv"]
+[ext_resource type="Script" uid="uid://pllwpkaxws07" path="res://win_module.gd" id="1_nu886"]
+[ext_resource type="PackedScene" uid="uid://bqdd5ta3chmt8" path="res://win_particles.tscn" id="2_cluxm"]
+[ext_resource type="Texture2D" uid="uid://dtt0box8ee4qc" path="res://Assets/UI/Banner_Green.png" id="2_nu886"]
+[ext_resource type="PackedScene" uid="uid://d3ckm278gmqib" path="res://standard_label.tscn" id="3_njw1f"]
+[ext_resource type="Texture2D" uid="uid://c82aju66r58bj" path="res://Assets/UI/Icon_Small_Star.png" id="4_wv56g"]
+[ext_resource type="Texture2D" uid="uid://b03ircdi8do7y" path="res://Assets/UI/ButtonText_Small_Green_Round.png" id="5_cluxm"]
+[ext_resource type="AudioStream" uid="uid://dvbkotm6fmtt6" path="res://Audio/ding (2).mp3" id="8_cluxm"]
+[ext_resource type="AudioStream" uid="uid://f1g8jtlpxll4" path="res://Audio/click.mp3" id="9_cluxm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b08na"]
+bg_color = Color(0, 0, 0, 0.49411765)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b08na"]
+texture = ExtResource("1_5m1uv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vlrf8"]
+texture = ExtResource("5_cluxm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_55qp5"]
+texture = ExtResource("5_cluxm")
+modulate_color = Color(0.61339027, 0.61339027, 0.61339027, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w3nqu"]
+texture = ExtResource("5_cluxm")
+modulate_color = Color(2.7083335, 2.7083335, 2.7083335, 1)
+
+[node name="WinModule" type="Control" unique_id=336844226]
+custom_minimum_size = Vector2(235, 235)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.5
+offset_top = -117.5
+offset_right = 117.5
+offset_bottom = 117.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_nu886")
+
+[node name="Panel" type="Panel" parent="." unique_id=910773497]
+layout_mode = 0
+offset_left = -518.5
+offset_top = -257.5
+offset_right = 753.5
+offset_bottom = 500.5
+theme_override_styles/panel = SubResource("StyleBoxFlat_b08na")
+
+[node name="GPUParticles2D" parent="." unique_id=989334669 instance=ExtResource("2_cluxm")]
+position = Vector2(118.5, 91.5)
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=223036521]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_b08na")
+
+[node name="Control" type="Control" parent="." unique_id=1817422785]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+offset_transform_enabled = true
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1755932169]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = -34.0
+offset_right = 96.0
+offset_bottom = 46.0
+grow_horizontal = 2
+offset_transform_enabled = true
+texture = ExtResource("2_nu886")
+expand_mode = 2
+
+[node name="LevelCompletedLabel" parent="Control/TextureRect" unique_id=538266080 instance=ExtResource("3_njw1f")]
+layout_mode = 1
+offset_top = -6.0
+offset_bottom = -6.0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 20
+text = "LEVEL X
+COMPLETED"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1197153134]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 13
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=814016245]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1468150108]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
+custom_minimum_size = Vector2(75, 75)
+custom_maximum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_wv56g")
+expand_mode = 2
+
+[node name="NextLevelButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=847098522]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxTexture_vlrf8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_55qp5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_w3nqu")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_vlrf8")
+theme_override_styles/focus = SubResource("StyleBoxTexture_vlrf8")
+
+[node name="Label2" parent="MarginContainer/VBoxContainer/NextLevelButton" unique_id=104047904 instance=ExtResource("3_njw1f")]
+layout_mode = 1
+offset_left = 1.5
+offset_top = 1.0
+offset_right = -1.5
+offset_bottom = -1.0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 20
+text = "Next level"
+
+[node name="OverviewButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=533214934]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxTexture_vlrf8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_55qp5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_w3nqu")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_vlrf8")
+theme_override_styles/focus = SubResource("StyleBoxTexture_vlrf8")
+
+[node name="Label2" parent="MarginContainer/VBoxContainer/OverviewButton" unique_id=192395925 instance=ExtResource("3_njw1f")]
+layout_mode = 1
+offset_left = 1.5
+offset_top = 1.0
+offset_right = -1.5
+offset_bottom = -1.0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 20
+text = "Overview"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1232272494]
+stream = ExtResource("8_cluxm")
+autoplay = true
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="." unique_id=651000888]
+stream = ExtResource("9_cluxm")
+
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/NextLevelButton" to="." method="_on_next_level_button_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/NextLevelButton" to="." method="_on_next_level_button_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/OverviewButton" to="." method="_on_overview_button_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/OverviewButton" to="." method="_on_overview_button_pressed"]

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://caoe7uvxwkgc7"]
+
+[ext_resource type="Texture2D" uid="uid://bgou5xm82kopp" path="res://Assets/Background/Cloud_02.png" id="1_1hvgm"]
+
+[sub_resource type="Curve" id="Curve_rptwa"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.24662161, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_gjx0c"]
+curve = SubResource("Curve_rptwa")
+
+[sub_resource type="Curve" id="Curve_kvxjt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5236486, 0.4285714), 0.0, 0.0, 0, 0, Vector2(1, 0.19642854), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_38753"]
+curve = SubResource("Curve_kvxjt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b08na"]
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 10.0
+initial_velocity_max = 125.75
+gravity = Vector3(0, 0, 0)
+scale_min = 0.049999997
+scale_max = 0.099999994
+scale_curve = SubResource("CurveTexture_38753")
+alpha_curve = SubResource("CurveTexture_gjx0c")
+
+[node name="GPUParticles2D" type="GPUParticles2D" unique_id=1593439970]
+show_behind_parent = true
+emitting = false
+amount = 5
+texture = ExtResource("1_1hvgm")
+lifetime = 0.65
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.76
+process_material = SubResource("ParticleProcessMaterial_b08na")

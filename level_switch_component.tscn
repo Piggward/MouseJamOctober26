@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://baecobrvw10d4"]
+
+[ext_resource type="Script" uid="uid://cc2rg12dlttii" path="res://level_switch_component.gd" id="1_bjy5m"]
+
+[node name="LevelSwitchComponent" type="Node2D" unique_id=203586724]
+script = ExtResource("1_bjy5m")

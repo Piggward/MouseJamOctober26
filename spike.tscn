@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://kkqvepb11ksx"]
+
+[ext_resource type="Script" uid="uid://bbsn6o8m33xy8" path="res://spike.gd" id="1_5sso0"]
+[ext_resource type="Texture2D" uid="uid://bo0pn4pi3oqgg" path="res://Assets/Objects/Spikes_Active.png" id="2_13jd2"]
+[ext_resource type="Texture2D" uid="uid://dwlv6d4yny2qv" path="res://Assets/Objects/Spikes.png" id="3_p45v3"]
+[ext_resource type="PackedScene" uid="uid://bmd86bv68ifrv" path="res://snap_to_grid_component.tscn" id="4_x5qbj"]
+[ext_resource type="AudioStream" uid="uid://dmhwjrohfwchj" path="res://Audio/spike.mp3" id="5_13jd2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlrf8"]
+size = Vector2(53, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vlrf8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_13jd2")
+}],
+"loop": 1,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_p45v3")
+}],
+"loop": 1,
+"name": &"inactive",
+"speed": 5.0
+}]
+
+[node name="Spike" type="Node2D" unique_id=1774495682]
+script = ExtResource("1_5sso0")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=249156635]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=701262765]
+position = Vector2(0.5, 2.5)
+shape = SubResource("RectangleShape2D_vlrf8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1438730687]
+position = Vector2(0, -15)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_vlrf8")
+animation = &"inactive"
+
+[node name="SnapToGridComponent" parent="." unique_id=1627032415 instance=ExtResource("4_x5qbj")]
+
+[node name="spike" type="AudioStreamPlayer2D" parent="." unique_id=655756423]
+stream = ExtResource("5_13jd2")
+volume_db = -7.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

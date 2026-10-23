@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bkjm6ho2yqpgu"]
+
+[ext_resource type="Script" uid="uid://hqik3lrehuuc" path="res://fox_projectile.gd" id="1_jj0m4"]
+[ext_resource type="Texture2D" uid="uid://c3y4y2t2d76l" path="res://Assets/Characters/Fox/Fox_Down_mean.png" id="2_6e4xc"]
+[ext_resource type="AudioStream" uid="uid://b2ddog4h2ksyh" path="res://Audio/fox_bark.mp3" id="3_vkya4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sacgs"]
+radius = 15.0
+
+[node name="FoxProjectile" type="Node2D" unique_id=534983242]
+script = ExtResource("1_jj0m4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=110672215]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_6e4xc")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=599984646]
+collision_layer = 64
+collision_mask = 129
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1381993137]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_sacgs")
+
+[node name="Bark" type="AudioStreamPlayer2D" parent="." unique_id=1925775784]
+stream = ExtResource("3_vkya4")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

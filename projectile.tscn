@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cguy7hxu1w462"]
+
+[ext_resource type="Texture2D" uid="uid://c2bgqfdhjfd3g" path="res://Assets/Icon_Small_Star.svg" id="1_qxf0c"]
+[ext_resource type="Script" uid="uid://b8eheopclvubv" path="res://projectile.gd" id="2_dgwo2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3uqus"]
+radius = 42.047592
+
+[node name="Projectile" type="Sprite2D" unique_id=1872889011]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_qxf0c")
+script = ExtResource("2_dgwo2")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=851315764]
+collision_layer = 128
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=193658245]
+shape = SubResource("CircleShape2D_3uqus")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

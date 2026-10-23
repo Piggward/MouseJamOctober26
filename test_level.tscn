@@ -1,0 +1,272 @@
+[gd_scene format=3 uid="uid://b1dlaqd21gh8p"]
+
+[ext_resource type="Script" uid="uid://jx8lfpbls101" path="res://test_level.gd" id="1_lnbra"]
+[ext_resource type="Texture2D" uid="uid://cqys7bso05bdp" path="res://Assets/Background/Bg.png" id="2_0dbuy"]
+[ext_resource type="Texture2D" uid="uid://bphn2623wgif0" path="res://Assets/Terrain/Terrain_Flat.png" id="2_4ptq8"]
+[ext_resource type="Texture2D" uid="uid://bdty0kiw1p1rf" path="res://Assets/Background/Cloud_01.png" id="3_f55p2"]
+[ext_resource type="Texture2D" uid="uid://ci6bc2xy8elry" path="res://Assets/Terrain/Grass_Dark.png" id="3_gbhdq"]
+[ext_resource type="Texture2D" uid="uid://bjswpb7dbsgje" path="res://Assets/Terrain/Terrain_Elevation.png" id="3_sb12i"]
+[ext_resource type="Texture2D" uid="uid://ccmc6skfqdjxk" path="res://Assets/Background/Cloud_05.png" id="4_f55p2"]
+[ext_resource type="Texture2D" uid="uid://dkep1b8a1wa31" path="res://Assets/Terrain/Grass_Light.png" id="4_y646j"]
+[ext_resource type="Texture2D" uid="uid://bo8h2o6oywbak" path="res://Assets/Terrain/Grass_Texture.png" id="5_b7ax5"]
+[ext_resource type="Texture2D" uid="uid://cxnccaswbn3xk" path="res://Assets/Background/Cloud_04.png" id="5_kvxjt"]
+[ext_resource type="Texture2D" uid="uid://cymn2tbsdsgdv" path="res://merged.png" id="6_gbhdq"]
+[ext_resource type="Shader" uid="uid://bsj0s8jtls12f" path="res://color_swap.gdshader" id="6_lnbra"]
+[ext_resource type="Texture2D" uid="uid://dktjyywivt1ne" path="res://Assets/Characters/Mouse/Mouse_Down.png" id="6_y646j"]
+[ext_resource type="PackedScene" uid="uid://kkqvepb11ksx" path="res://spike.tscn" id="8_2hfll"]
+[ext_resource type="Texture2D" uid="uid://bbvldj7v4ayf" path="res://Assets/Characters/Mouse/Mouse_Dead.png" id="8_38et7"]
+[ext_resource type="Script" uid="uid://ip8q7xqmidvu" path="res://mouse.gd" id="9_6emce"]
+[ext_resource type="Texture2D" uid="uid://kkcsbr22dbgj" path="res://Assets/Characters/Mouse/Mouse_Left.png" id="10_b7ax5"]
+[ext_resource type="Texture2D" uid="uid://byxaisnmgkif6" path="res://Assets/Characters/Mouse/Mouse_Right.png" id="11_4bgwg"]
+[ext_resource type="Texture2D" uid="uid://boq41u5hlfhaf" path="res://Assets/Characters/Mouse/Mouse_Up.png" id="12_2hfll"]
+[ext_resource type="PackedScene" uid="uid://bioojo35ocytc" path="res://cheese.tscn" id="13_f55p2"]
+[ext_resource type="PackedScene" uid="uid://bmd86bv68ifrv" path="res://snap_to_grid_component.tscn" id="15_7fqlb"]
+[ext_resource type="Texture2D" uid="uid://bgou5xm82kopp" path="res://Assets/Background/Cloud_02.png" id="23_kvxjt"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b7ax5"]
+texture = ExtResource("3_gbhdq")
+texture_region_size = Vector2i(128, 96)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -15)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63, -48, 64, -46, 64, 15, -64, 15)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7fqlb"]
+texture = ExtResource("4_y646j")
+texture_region_size = Vector2i(128, 96)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -15)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63, -48, 64, -46, 64, 15, -64, 15)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4bgwg"]
+texture = ExtResource("6_gbhdq")
+texture_region_size = Vector2i(128, 96)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -15)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63, -48, 64, -46, 64, 15, -64, 15)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -15)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63, -48, 64, -46, 64, 15, -64, 15)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2hfll"]
+texture = ExtResource("5_b7ax5")
+texture_region_size = Vector2i(128, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -32, 64, -32, 64, 32, -64, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -32, 64, -32, 64, 32, -64, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -32, 64, -32, 64, 32, -64, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -32, 64, -32, 64, 32, -64, 32)
+
+[sub_resource type="TileSet" id="TileSet_vlrf8"]
+tile_size = Vector2i(128, 64)
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 8
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Grass 0"
+terrain_set_0/terrain_0/color = Color(0.5019608, 0.8, 0.2509804, 1)
+terrain_set_0/terrain_1/name = "Grass1 1"
+terrain_set_0/terrain_1/color = Color(0.058317885, 0.52950406, 0.29493314, 1)
+sources/6 = SubResource("TileSetAtlasSource_2hfll")
+sources/11 = SubResource("TileSetAtlasSource_b7ax5")
+sources/12 = SubResource("TileSetAtlasSource_7fqlb")
+sources/15 = SubResource("TileSetAtlasSource_4bgwg")
+tile_proxies/coords_level = [[6, Vector2i(0, 0)], [0, Vector2i(0, 0)], [6, Vector2i(1, 0)], [0, Vector2i(1, 0)], [7, Vector2i(0, 0)], [0, Vector2i(2, 0)], [7, Vector2i(1, 0)], [0, Vector2i(3, 0)], [7, Vector2i(2, 0)], [0, Vector2i(4, 0)], [7, Vector2i(3, 0)], [0, Vector2i(5, 0)]]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_50tlk"]
+shader = ExtResource("6_lnbra")
+shader_parameter/from_color = Color(1, 0, 0, 1)
+shader_parameter/to_color = Color(0, 0, 1, 1)
+shader_parameter/from_color2 = Color(1, 0, 0, 1)
+shader_parameter/to_color2 = Color(0, 0, 1, 1)
+shader_parameter/from_color3 = Color(1, 0, 0, 1)
+shader_parameter/to_color3 = Color(0, 0, 1, 1)
+shader_parameter/from_color4 = Color(1, 0, 0, 1)
+shader_parameter/to_color4 = Color(0, 0, 1, 1)
+shader_parameter/from_color5 = Color(1, 0, 0, 1)
+shader_parameter/to_color5 = Color(0, 0, 1, 1)
+shader_parameter/tolerance = 0.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b08na"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_38et7")
+}],
+"loop": 1,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_y646j")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_b7ax5")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_4bgwg")
+}],
+"loop": 1,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_2hfll")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b08na"]
+size = Vector2(74, 44)
+
+[sub_resource type="Curve" id="Curve_rptwa"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.24662161, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_kvxjt"]
+curve = SubResource("Curve_rptwa")
+
+[sub_resource type="Curve" id="Curve_kvxjt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5236486, 0.4285714), 0.0, 0.0, 0, 0, Vector2(1, 0.19642854), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_vlrf8"]
+curve = SubResource("Curve_kvxjt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b08na"]
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 10.0
+initial_velocity_max = 125.75
+gravity = Vector3(0, 0, 0)
+scale_min = 0.049999997
+scale_max = 0.099999994
+scale_curve = SubResource("CurveTexture_vlrf8")
+alpha_curve = SubResource("CurveTexture_kvxjt")
+
+[node name="Node2D" type="Node2D" unique_id=43940947]
+script = ExtResource("1_lnbra")
+
+[node name="Background" type="Node2D" parent="." unique_id=930154021]
+
+[node name="Bg" type="Sprite2D" parent="Background" unique_id=1262818023]
+position = Vector2(649, 343.49997)
+scale = Vector2(5.3125, 3.2539065)
+texture = ExtResource("2_0dbuy")
+
+[node name="Cloud01" type="Sprite2D" parent="Background" unique_id=1364527808]
+position = Vector2(968, 258)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_f55p2")
+
+[node name="Cloud03" type="Sprite2D" parent="Background" unique_id=1793905650]
+position = Vector2(276, 529)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_f55p2")
+
+[node name="Cloud04" type="Sprite2D" parent="Background" unique_id=1045914722]
+position = Vector2(354, 50)
+texture = ExtResource("5_kvxjt")
+
+[node name="Cloud05" type="Sprite2D" parent="Background" unique_id=419843517]
+position = Vector2(811, 532)
+texture = ExtResource("4_f55p2")
+
+[node name="TerrainFlat" type="Sprite2D" parent="." unique_id=868580522]
+visible = false
+position = Vector2(-295, 219)
+scale = Vector2(0.28148088, 0.28148088)
+texture = ExtResource("2_4ptq8")
+
+[node name="TerrainElevation" type="Sprite2D" parent="." unique_id=322562390]
+visible = false
+position = Vector2(-291, 612)
+scale = Vector2(0.27720815, 0.27720815)
+texture = ExtResource("3_sb12i")
+
+[node name="TileMap" type="TileMap" parent="." unique_id=1092097384]
+scale = Vector2(0.5, 0.5)
+tile_set = SubResource("TileSet_vlrf8")
+format = 2
+layer_0/tile_data = PackedInt32Array(65537, 6, 0, 131073, 6, 1, 196609, 6, 0, 262145, 6, 1, 327681, 6, 0, 393217, 6, 1, 458753, 6, 0, 524289, 6, 1, 589825, 65551, 0, 65538, 65542, 0, 131074, 65542, 1, 196610, 65542, 0, 262146, 65542, 1, 327682, 65542, 0, 393218, 65542, 1, 458754, 65542, 0, 524290, 65542, 1, 589826, 15, 0, 65539, 6, 0, 131075, 6, 1, 196611, 6, 0, 262147, 6, 1, 327683, 6, 0, 393219, 6, 1, 458755, 6, 0, 524291, 6, 1, 589827, 65551, 0, 65540, 65542, 0, 131076, 65542, 1, 196612, 65542, 0, 262148, 65542, 1, 327684, 65542, 0, 393220, 65542, 1, 458756, 65542, 0, 524292, 65542, 1, 589828, 15, 0)
+
+[node name="FloorObjects" type="Node2D" parent="." unique_id=1888065791]
+
+[node name="Spike" parent="FloorObjects" unique_id=1774495682 instance=ExtResource("8_2hfll")]
+position = Vector2(224, 206)
+
+[node name="Cheese" parent="FloorObjects" unique_id=2068781396 instance=ExtResource("13_f55p2")]
+position = Vector2(158, 74)
+
+[node name="MouseDown" type="AnimatedSprite2D" parent="." unique_id=1702729480]
+modulate = Color(2.7075353, 2.7075353, 2.7075353, 1)
+material = SubResource("ShaderMaterial_50tlk")
+position = Vector2(162, 206)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_b08na")
+animation = &"right"
+offset = Vector2(0, -15.725)
+script = ExtResource("9_6emce")
+
+[node name="RayCasts" type="Node2D" parent="MouseDown" unique_id=515904423]
+
+[node name="DownCast" type="RayCast2D" parent="MouseDown/RayCasts" unique_id=1967238517]
+position = Vector2(0, 68)
+target_position = Vector2(0, 28)
+collision_mask = 8
+hit_from_inside = true
+
+[node name="LeftCast" type="RayCast2D" parent="MouseDown/RayCasts" unique_id=200174834]
+position = Vector2(-132, 10)
+target_position = Vector2(0, 28)
+collision_mask = 8
+hit_from_inside = true
+
+[node name="RightCast" type="RayCast2D" parent="MouseDown/RayCasts" unique_id=1792675278]
+position = Vector2(130, 10)
+target_position = Vector2(0, 28)
+collision_mask = 8
+hit_from_inside = true
+
+[node name="UpCast" type="RayCast2D" parent="MouseDown/RayCasts" unique_id=1651486132]
+position = Vector2(0, -62)
+target_position = Vector2(0, 28)
+collision_mask = 8
+hit_from_inside = true
+
+[node name="SnapToGridComponent" parent="MouseDown" unique_id=1722126780 instance=ExtResource("15_7fqlb")]
+
+[node name="Area2D" type="Area2D" parent="MouseDown" unique_id=1300858846]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseDown/Area2D" unique_id=1410678583]
+position = Vector2(-7, 2)
+shape = SubResource("RectangleShape2D_b08na")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="MouseDown" unique_id=6379352]
+show_behind_parent = true
+emitting = false
+amount = 5
+texture = ExtResource("23_kvxjt")
+lifetime = 0.65
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.76
+process_material = SubResource("ParticleProcessMaterial_b08na")
+
+[connection signal="area_entered" from="MouseDown/Area2D" to="MouseDown" method="_on_area_2d_area_entered"]

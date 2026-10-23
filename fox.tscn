@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://nla65vixs4f6"]
+
+[ext_resource type="Texture2D" uid="uid://cyosyxbsns1dw" path="res://Assets/Characters/Fox/Fox_Dead.png" id="1_6i76r"]
+[ext_resource type="Texture2D" uid="uid://c3y4y2t2d76l" path="res://Assets/Characters/Fox/Fox_Down_mean.png" id="2_yd78t"]
+[ext_resource type="Texture2D" uid="uid://d2rrdjodovhfy" path="res://Assets/Characters/Fox/Fox_Left_mean.png" id="3_5u6l4"]
+[ext_resource type="Texture2D" uid="uid://c58qbim3h6i5" path="res://Assets/Characters/Fox/Fox_Right_mean.png" id="4_hrkxs"]
+[ext_resource type="Texture2D" uid="uid://dxianl74fb6lw" path="res://Assets/Characters/Fox/Fox_Up.png" id="5_p37se"]
+[ext_resource type="Script" uid="uid://c6t1hu33nldg0" path="res://fox.gd" id="6_2ynf4"]
+[ext_resource type="PackedScene" uid="uid://wmx81csaoibu" path="res://move_component.tscn" id="7_fphkv"]
+[ext_resource type="PackedScene" uid="uid://bmd86bv68ifrv" path="res://snap_to_grid_component.tscn" id="8_kdwor"]
+[ext_resource type="PackedScene" uid="uid://drp6lotskf8s7" path="res://fox_path.tscn" id="9_4j2qy"]
+[ext_resource type="AudioStream" uid="uid://b2ddog4h2ksyh" path="res://Audio/fox_bark.mp3" id="10_yd78t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b08na"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6i76r")
+}],
+"loop": 1,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yd78t")
+}],
+"loop": 1,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_5u6l4")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hrkxs")
+}],
+"loop": 1,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_p37se")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b08na"]
+size = Vector2(76, 20)
+
+[node name="Fox" type="AnimatedSprite2D" unique_id=1977536409]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_b08na")
+animation = &"down"
+offset = Vector2(0, -20)
+script = ExtResource("6_2ynf4")
+start_move = 3
+start_dir = -1
+
+[node name="MoveComponent" parent="." unique_id=1380026001 instance=ExtResource("7_fphkv")]
+
+[node name="SnapToGridComponent" parent="." unique_id=1627032415 instance=ExtResource("8_kdwor")]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1049588101]
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=166614890]
+shape = SubResource("RectangleShape2D_b08na")
+
+[node name="FoxPath" parent="." unique_id=1841859924 instance=ExtResource("9_4j2qy")]
+position = Vector2(-128, 0)
+scale = Vector2(2, 2)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1485424810]
+stream = ExtResource("10_yd78t")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

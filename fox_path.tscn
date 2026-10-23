@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://drp6lotskf8s7"]
+
+[node name="FoxPath" type="Line2D" unique_id=1841859924]
+points = PackedVector2Array(-68, -3, 0, 1, 61, -1, 128, -1)
+default_color = Color(1, 1, 1, 0)

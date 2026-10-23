@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b86ynvgbdv7va"]
+
+[ext_resource type="Texture2D" uid="uid://ckxv3bvrfj33r" path="res://Assets/Objects/Box.png" id="1_g2tbl"]
+[ext_resource type="PackedScene" uid="uid://bmd86bv68ifrv" path="res://snap_to_grid_component.tscn" id="2_oq5cr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b08na"]
+size = Vector2(54, 27)
+
+[node name="Box" type="Node2D" unique_id=639284425]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=377711359]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_g2tbl")
+offset = Vector2(0, -24)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=860135055]
+position = Vector2(0, -6)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1637300103]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_b08na")
+
+[node name="SnapToGridComponent" parent="." unique_id=1627032415 instance=ExtResource("2_oq5cr")]
